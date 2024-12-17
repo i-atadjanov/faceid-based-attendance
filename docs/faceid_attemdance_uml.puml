@@ -1,0 +1,23 @@
+@startuml
+
+!define RECTANGLE_RECT << (R,orchid) >>
+
+actor Student
+actor Teacher
+actor LMSSystem as LMS
+
+package "FaceID Attendance System" {
+    usecase "Register Face" as UC1
+    usecase "Mark Attendance" as UC2
+    usecase "Update Attendance Logs" as UC3
+    usecase "View Attendance Reports" as UC4
+    usecase "Sync Attendance Data" as UC5
+}
+
+Student --> UC1 : "Initiates"
+Student --> UC2 : "Triggers"
+Teacher --> UC3 : "Updates"
+Teacher --> UC4 : "Views"
+UC5 --> LMS : "Pushes Data"
+
+@enduml
