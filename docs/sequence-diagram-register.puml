@@ -1,0 +1,13 @@
+@startuml
+participant device as DV
+participant "LMS System" as LMS
+database DB
+participant "FaceID System" as FID
+
+DV -> LMS: send photo and class_ID to register
+LMS -> FID: send photo
+FID --> LMS: return embeddings
+LMS -> DB: store embeddings
+LMS --> DV: return status
+
+@enduml

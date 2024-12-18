@@ -1,0 +1,12 @@
+@startuml
+participant device as DV
+participant "LMS System" as LMS
+database DB
+participant "FaceID System" as FID
+
+DV -> LMS: send image to check-in and class_ID
+LMS -> DB: get embeddins from class_ID
+LMS -> FID: send image & class embedding to compare
+FID --> LMS: return proximity matrix
+LMS --> DV: return status of check-in
+@enduml
